@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"> 
+        <title>J.Gecko 분양 리스트</title> 
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        
 <style>
     :root {
         --primary-color: #2c5f2d;
@@ -270,9 +281,16 @@
         }
     }
 </style>
-</head> <body> <header> <div class="header-content"> <h1>🦎 J.Gecko</h1> <p class="subtitle">프리미엄 레오파드 게코 전문 브리더</p> </div> </header>
-
-<div class="container" id="geckoContainer">
+    </head> 
+    <body> 
+        <header> 
+            <div class="header-content"> 
+                <h1>🦎 J.Gecko</h1> 
+                <p class="subtitle">프리미엄 레오파드 게코 전문 브리더
+                </p> 
+            </div> 
+        </header>
+        <div class="container" id="geckoContainer">
     <!-- 여기에 자동으로 카드가 생성됩니다 -->
 </div>
 
@@ -297,7 +315,7 @@
             dam: { name: '블러드 만다린', url: '#' },
             originalPrice: 250000,
             salePrice: 220000,
-            status: 'available', // available 또는 sold
+            status: 'available',
             images: [
                 'https://github.com/user-attachments/assets/9142e86e-b75a-4447-a4ca-a18ea2e0a6e2',
                 'https://github.com/user-attachments/assets/33df0352-3d1f-405c-9a28-1066efeda4fc'
@@ -380,9 +398,9 @@
         return `
             <section class="gecko-card">
                 <div class="gecko-image">
-                    <div class="swiper gecko-swiper-${gecko.id}">
+                    <div class="swiper gecko-swiper-\${gecko.id}">
                         <div class="swiper-wrapper">
-                            ${imagesHTML}
+                            \${imagesHTML}
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
@@ -391,21 +409,21 @@
                 </div>
                 <div class="gecko-info">
                     <div>
-                        <h2>${gecko.id}: ${gecko.name}</h2>
-                        <span class="status-badge ${gecko.status === 'sold' ? 'sold' : ''}">
-                            ${gecko.status === 'sold' ? '분양 완료' : '분양 가능'}
+                        <h2>\${gecko.id}: \${gecko.name}</h2>
+                        <span class="status-badge \${gecko.status === 'sold' ? 'sold' : ''}">
+                            \${gecko.status === 'sold' ? '분양 완료' : '분양 가능'}
                         </span>
-                        <p class="description">${gecko.description}</p>
+                        <p class="description">\${gecko.description}</p>
                         <ul class="info-list">
-                            <li><strong>개체 코드:</strong> ${gecko.id}</li>
-                            <li><strong>해칭일:</strong> ${gecko.hatchDate}</li>
-                            <li><strong>성별:</strong> ${gecko.gender}</li>
-                            <li><strong>부 (Sire):</strong> <a href="${gecko.sire.url}" target="_blank">${gecko.sire.name}</a></li>
-                            <li><strong>모 (Dam):</strong> <a href="${gecko.dam.url}" target="_blank">${gecko.dam.name}</a></li>
+                            <li><strong>개체 코드:</strong> \${gecko.id}</li>
+                            <li><strong>해칭일:</strong> \${gecko.hatchDate}</li>
+                            <li><strong>성별:</strong> \${gecko.gender}</li>
+                            <li><strong>부 (Sire):</strong> <a href="\${gecko.sire.url}" target="_blank">\${gecko.sire.name}</a></li>
+                            <li><strong>모 (Dam):</strong> <a href="\${gecko.dam.url}" target="_blank">\${gecko.dam.name}</a></li>
                         </ul>
                     </div>
                     <div class="price-section">
-                        ${priceHTML}
+                        \${priceHTML}
                     </div>
                 </div>
             </section>
@@ -437,4 +455,7 @@
         });
     });
 </script>
-</body> </html>
+    </body> 
+</html>
+        
+        
