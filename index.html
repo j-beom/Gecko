@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>분양 개체 리스트</title>
+    <title>J.Gecko 분양 리스트</title>
     <style>
         /* 기본 스타일 */
         body {
@@ -20,8 +20,9 @@
             background: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
+        /* 헤더 (제목 부분) */
         header {
             text-align: center;
             margin-bottom: 30px;
@@ -31,14 +32,16 @@
         header h1 {
             margin: 0;
             color: #2c3e50;
+            font-size: 2.5em;
         }
         header p {
             color: #7f8c8d;
+            font-size: 1.1em;
         }
         /* 개체 카드 스타일 */
         .gecko-card {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* 화면이 좁아지면 자동으로 줄바꿈 */
             margin-bottom: 40px;
             padding-bottom: 30px;
             border-bottom: 1px solid #eee;
@@ -48,21 +51,23 @@
             margin-bottom: 0;
         }
         .gecko-image {
-            flex: 1 1 300px; /* flex-grow, flex-shrink, flex-basis */
-            margin-right: 20px;
+            flex: 1 1 300px; /* PC에서 1:2 비율로, 최소 300px 너비 */
+            margin-right: 25px;
         }
         .gecko-image img {
             width: 100%;
             height: auto;
             border-radius: 8px;
             object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .gecko-info {
-            flex: 2 1 400px;
+            flex: 2 1 400px; /* PC에서 1:2 비율로, 최소 400px 너비 */
         }
         .gecko-info h2 {
             margin-top: 0;
             color: #3498db;
+            font-size: 1.8em;
         }
         .info-list {
             list-style-type: none;
@@ -71,16 +76,16 @@
         .info-list li {
             background: #ecf0f1;
             margin-bottom: 8px;
-            padding: 10px;
+            padding: 12px;
             border-radius: 5px;
             display: flex;
         }
         .info-list li strong {
-            flex-basis: 100px;
+            flex-basis: 120px; /* 항목 이름의 너비 고정 */
             color: #2c3e50;
         }
         .price {
-            font-size: 1.5em;
+            font-size: 1.6em;
             font-weight: bold;
             color: #e74c3c;
             margin-top: 15px;
@@ -91,74 +96,69 @@
             font-size: 0.9em;
             color: #95a5a6;
         }
-        /* 모바일 반응형 */
+        /* 모바일 반응형: 화면 너비가 768px 이하일 때 적용 */
         @media (max-width: 768px) {
             .gecko-card {
-                flex-direction: column;
+                flex-direction: column; /* 세로로 쌓이도록 변경 */
             }
             .gecko-image {
                 margin-right: 0;
                 margin-bottom: 20px;
             }
+            header h1 { font-size: 2em; }
+            .gecko-info h2 { font-size: 1.5em; }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <header>
-            <h1>🦎 분양 개체 리스트 🦎</h1>
-            <p>문의: 010-1234-5678 또는 네이버 카페 채팅</p>
+            <h1>J.Gecko</h1>
+            <p>문의 : 010-4569-3787</p>
         </header>
 
         <main>
             <!-- 개체 1 시작 -->
             <section class="gecko-card">
                 <div class="gecko-image">
-                    <!-- 개체 사진 이미지 주소. 이미지 파일도 GitHub에 업로드 후 링크 가능 -->
-                    <img src="https://via.placeholder.com/400" alt="개체 1 사진">
+                    <!-- 개체 사진 이미지 주소 -->
+                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA1MDdfMjQ3%2FMDAxNzE1MDY1MTE5OTI3.5wH2l61l-Qy76xX-4_i8_zYw-13u-j_859W-3_2v_zMg.6-s8336-3XhE_u_7fD29y2z61J0w2X-r3-196m2969og.JPEG%2F20240507_155355.jpg&type=sc960_832" alt="24-01 사진">
                 </div>
                 <div class="gecko-info">
-                    <h2>G-001: 슈퍼 스노우</h2>
+                    <h2>24-01</h2>
                     <ul class="info-list">
-                        <li><strong>개체 코드:</strong> G-001</li>
-                        <li><strong>모프:</strong> 슈퍼 스노우</li>
-                        <li><strong>해칭일:</strong> 2025-05-20</li>
-                        <li><strong>성별:</strong> 미구분</li>
-                        <li><strong>부모 정보:</strong> 맥 스노우 x 맥 스노우</li>
+                        <li><strong>부모 정보:</strong> 텐저린 이그리마 x 블러드 만다린</li>
+                        <li><strong>성별:</strong> Female</li>
+                        <li><strong>해칭일:</strong> 24.04.15</li>
                     </ul>
-                    <div class="price">가격: 150,000원</div>
+                    <div class="price">가격: 200,000원</div>
                 </div>
             </section>
             <!-- 개체 1 끝 -->
 
-            <!-- 개체 2 시작 -->
+            <!-- 여기에 새로운 개체를 추가하려면 위 '개체 시작/끝' 섹션을 복사해서 붙여넣고 내용만 수정하세요. -->
+            <!-- 예시 개체 2 시작 -->
             <section class="gecko-card">
                 <div class="gecko-image">
-                    <img src="https://via.placeholder.com/400" alt="개체 2 사진">
+                    <img src="https://via.placeholder.com/400x300.png?text=Gecko+Image" alt="개체 2 사진">
                 </div>
                 <div class="gecko-info">
-                    <h2>G-002: 블랙 나이트</h2>
+                    <h2>24-02</h2>
                     <ul class="info-list">
-                        <li><strong>개체 코드:</strong> G-002</li>
-                        <li><strong>모프:</strong> 블랙 나이트</li>
-                        <li><strong>해칭일:</strong> 2025-06-01</li>
-                        <li><strong>성별:</strong> 수컷 추정</li>
-                        <li><strong>부모 정보:</strong> 퓨어 블랙나이트 x 퓨어 블랙나이트</li>
+                        <li><strong>부모 정보:</strong> 블랙나이트 x 블랙나이트</li>
+                        <li><strong>성별:</strong> Male</li>
+                        <li><strong>해칭일:</strong> 24.05.01</li>
                     </ul>
-                    <div class="price">가격: 문의</div>
+                    <div class="price">가격: 350,000원</div>
                 </div>
             </section>
-            <!-- 개체 2 끝 -->
-
-            <!-- 여기에 새로운 개체를 추가하려면 위 '개체 시작/끝' 섹션을 복사해서 붙여넣고 내용만 수정하세요. -->
+            <!-- 예시 개체 2 끝 -->
 
         </main>
 
         <footer>
-            <p>&copy; 2025 나의 게코 팜. All Rights Reserved.</p>
+            <p>&copy; 2025 J.Gecko. All Rights Reserved.</p>
         </footer>
     </div>
-
 </body>
 </html>
